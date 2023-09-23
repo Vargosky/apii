@@ -12,21 +12,20 @@ const MateriaPrimaSchema = Schema({
 
     cantidad: { 
         type: Number, 
-        required: false,
         default: 0,    
     },
 
     costoPorUnidad: { 
         type: Number, 
-        required: false },
+         },
 
     proveedor: {
             type: String, 
-            required: false },
+             },
 
     fechaExpiracion: {
             Type:Date,
-            require:false
+            
         },
 
     creadoDate: { 
@@ -39,7 +38,7 @@ const MateriaPrimaSchema = Schema({
 
     stockCritico:{
         type: Number,
-        require:false
+        
     }
 });
 

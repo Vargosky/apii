@@ -6,6 +6,16 @@ const cors = require("cors");
 const app = express();
 const port = 3001;
 
+//rutas
+
+const routeMateriaPrima= require("./api/routes/routeMateriaPrima.js");
+
+app.use("api/mmpp/", routeMateriaPrima);
+
+
+
+
+
 
 // Configurar CORS para permitir cualquier origen
 app.use(cors({
@@ -20,6 +30,8 @@ app.use(cors({
 app.get("/", (req,res)=>{
     res.send('funcionando el servidor basico')
 })
+
+
 
 
 // Convertir todo a JSON
