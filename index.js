@@ -14,7 +14,7 @@ connection();
 if (connection) {
 
     app.get("/", (req,res)=>{
-        res.send(' conectado'+connection)
+        res.send(' conectado');
     })
 
 }
