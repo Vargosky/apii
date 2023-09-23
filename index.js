@@ -6,6 +6,21 @@ const cors = require("cors");
 const app = express();
 const port = 3001;
 
+//temporal
+const RawMaterial = require('./api/model/MateriaPrima.js');
+
+const getAllRawMaterials = async (req, res) => {
+    try {
+        const rawMaterials = await RawMaterial.find().sort({ name: 1 });
+        res.status(200).json(rawMaterials);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+
+
+
 //rutas
 
 const routeMateriaPrima= require("./api/routes/routeMateriaPrima.js");
@@ -27,9 +42,7 @@ app.use(cors({
 }));
 
 
-app.get("/", (req,res)=>{
-    res.send('funcionando el servidor basico')
-})
+app.get("/", getAllRawMaterials);
 
 
 
