@@ -7,7 +7,7 @@ const {
 
   } = require('../controllers/ctrlMateriaPrima');
 
-router.get('/all/', getAllRawMaterials);
+router.get('all/', getAllRawMaterials);
 
 
 module.exports = router;
