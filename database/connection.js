@@ -1,23 +1,21 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://saremvargas:Sarem1509@cluster0.j4tuv0s.mongodb.net/?retryWrites=true&w=majority";
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
+const mongoose = require("mongoose");
+
+const connection = async ()=>{
+
+    const bdName = "Damasco";
+    const urlLocal = "mongodb://127.0.0.1:27017/";
+    const urlCloud = "mongodb+srv://saremvargas:Sarem1509@cluster0.j4tuv0s.mongodb.net/?retryWrites=true&w=majority";
+    
+
+    try {
+        await mongoose.connect(urlCloud+bdName);
+        console.log("conectado correctamente a la BASE DE DATOS :"+bdName +"en la direccion "+urlCloud);
+    } catch (error) {
+        console.log(error);
+        throw new error ("no se pudo conectar a base de datos: "+bdName);
+    }
+
+
 }
-run().catch(console.dir);
+
+module.exports = connection;
