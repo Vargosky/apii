@@ -7,6 +7,18 @@ const app = express();
 const port = 3001;
 
 
+// Conexión a la base de datos
+console.log("BIENVENIDO A LA API CTM");
+connection();
+
+if (!connection) {
+
+    app.get("/", (req,res)=>{
+        res.send('No conectado ')
+    })
+
+}
+
 //rutas
 
 const routeMateriaPrima= require("./api/routes/routeMateriaPrima.js");
@@ -39,9 +51,6 @@ app.get("/", (req,res)=>{
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Conexión a la base de datos
-console.log("BIENVENIDO A LA API CTM");
-connection();
 
 
 
