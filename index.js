@@ -11,11 +11,14 @@ const port = 3001;
 console.log("BIENVENIDO A LA API CTM");
 connection();
 
-if (!connection) {
+if (connection) {
 
     app.get("/", (req,res)=>{
-        res.send('No conectado ')
+        res.send(' conectado ')
     })
+
+}
+else{
 
 }
 
@@ -40,9 +43,6 @@ app.use(cors({
 }));
 
 
-app.get("/", (req,res)=>{
-    res.send('funcionando el servidor basico')
-})
 
 
 
