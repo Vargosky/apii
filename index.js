@@ -10,7 +10,7 @@ const port = 3001;
 
 const routeMateriaPrima= require("./api/routes/routeMateriaPrima.js");
 
-app.use("api/mmpp/", routeMateriaPrima);
+app.use("/mmpp", routeMateriaPrima);
 
 
 
