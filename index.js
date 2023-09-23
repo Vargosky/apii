@@ -26,7 +26,7 @@ else{
 
 const routeMateriaPrima= require("./api/routes/routeMateriaPrima.js");
 
-app.use("/mmpp", routeMateriaPrima);
+app.use("/mmpp/", routeMateriaPrima);
 
 
 
