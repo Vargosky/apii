@@ -19,7 +19,9 @@ if (connection) {
 
 }
 else{
-
+    app.get("/", (req,res)=>{
+        res.send(' No conectado');
+    })
 }
 
 //rutas
