@@ -24,9 +24,9 @@ const routeMateriaPrima = require("./api/routes/routeMateriaPrima");
 const routeSubproducto = require("./api/routes/routeSubproducto");
 const routeProduccion = require("./api/routes/routeProduccion");
 
-app.use("/mmpp", routeMateriaPrima);  //ruta de materias primas listo fx
-app.use("/subproducto",routeSubproducto);
-app.use("/produccion",routeProduccion);
+app.use("/api/mmpp", routeMateriaPrima);  //ruta de materias primas listo fx
+app.use("/api/subproducto",routeSubproducto);
+app.use("/api/produccion",routeProduccion);
 
 
 
