@@ -3,11 +3,25 @@ const router = express.Router();
 
 
 const {
-    getAllRawMaterials,
-
-  } = require('../controllers/ctrlMateriaPrima');
+  getAllRawMaterials,
+  getRawMaterialById,
+  createRawMaterial,
+  updateRawMaterial,
+  deleteRawMaterial,
+  buscarPorNombre,
+  getRawMaterialsPaginated,
+  descontarCantidad
+} = require('../controllers/ctrlMateriaPrima');
 
 router.get('/all/', getAllRawMaterials);
+router.get('/:id', getRawMaterialById);
+router.post('/create/', createRawMaterial);
+router.put('/:id', updateRawMaterial);
+router.delete('/:id', deleteRawMaterial);
+router.get('/buscar/:nombre', buscarPorNombre);
+router.get('/list/:page',getRawMaterialsPaginated); 
+router.put('/descontar/:id/:cantidad',descontarCantidad);   
+
 
 
 module.exports = router;
