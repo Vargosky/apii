@@ -18,13 +18,15 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Rutas -MMPP->lista falta: subproducto y produccion
+// Rutas -MMPP y subproducto ->listay falta:produccion
 
 const routeMateriaPrima = require("./api/routes/routeMateriaPrima");
 const routeSubproducto = require("./api/routes/routeSubproducto");
+const routeProduccion = require("./api/routes/routeProduccion");
 
 app.use("/mmpp", routeMateriaPrima);  //ruta de materias primas listo fx
 app.use("/subproducto",routeSubproducto);
+app.use("/produccion",routeProduccion);
 
 
 
