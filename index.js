@@ -35,8 +35,11 @@ const initializeServer = async () => {
 const routeMateriaPrima = require("./api/routes/routeMateriaPrima.js");
 app.use("/mmpp", routeMateriaPrima);
 
+
+
+
 app.get("/", (req, res) => {
-    res.send('Conectado'); // Ahora solo mostramos 'Conectado' sin importar si la BD está conectada o no.
+    res.send('Conectado de forma correcta'); // Ahora solo mostramos 'Conectado' sin importar si la BD está conectada o no.....
 });
 
 // Middleware de errores (Agrega este después de todas tus rutas)
