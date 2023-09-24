@@ -31,9 +31,9 @@ const initializeServer = async () => {
     }
 };
 
-// Rutas
-const routeMateriaPrima = require("./api/routes/routeMateriaPrima.js");
-app.use("/mmpp", routeMateriaPrima);
+// // Rutas
+// const routeMateriaPrima = require("./api/routes/routeMateriaPrima.js");
+// app.use("/mmpp", routeMateriaPrima);
 
 
 
