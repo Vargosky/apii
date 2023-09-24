@@ -1,9 +1,9 @@
-const connection = require("./database/connection.js");
 const express = require("express");
 const cors = require("cors");
+const connection = require("./database/connection");
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 // Middleware para configurar CORS
 app.use(cors({
@@ -18,6 +18,20 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Rutas
+const routeMateriaPrima = require("./api/routes/routeMateriaPrima");
+app.use("/mmpp", routeMateriaPrima);
+
+app.get("/", (req, res) => {
+    res.send('Conectado de forma correcta');
+});
+
+// Middleware de errores (Agrega este después de todas tus rutas)
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('¡Algo salió mal!');
+});
+
 // Iniciar el servidor y manejar la conexión con la BD
 const initializeServer = async () => {
     try {
@@ -31,22 +45,7 @@ const initializeServer = async () => {
     }
 };
 
-// // Rutas
-// const routeMateriaPrima = require("./api/routes/routeMateriaPrima.js");
-// app.use("/mmpp", routeMateriaPrima);
-
-
-
-
-app.get("/", (req, res) => {
-    res.send('Conectado de forma correcta'); // Ahora solo mostramos 'Conectado' sin importar si la BD está conectada o no.....
-});
-
-// Middleware de errores (Agrega este después de todas tus rutas)
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).send('¡Algo salió mal!');
-});
-
 // Iniciar el servidor
 initializeServer();
+
+module.exports = app;
