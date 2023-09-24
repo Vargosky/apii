@@ -18,9 +18,15 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Rutas
+// Rutas -MMPP->lista falta: subproducto y produccion
+
 const routeMateriaPrima = require("./api/routes/routeMateriaPrima");
-app.use("/mmpp", routeMateriaPrima);
+const routeSubproducto = require("./api/routes/routeSubproducto");
+
+app.use("/mmpp", routeMateriaPrima);  //ruta de materias primas listo fx
+app.use("/subproducto",routeSubproducto);
+
+
 
 app.get("/", (req, res) => {
     res.send('Conectado de forma correcta');
